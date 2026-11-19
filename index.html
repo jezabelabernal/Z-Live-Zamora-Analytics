@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z! LIVE Rock Fest | Análisis Histórico Completo (2016–2026)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js v4.4.1 UMD -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Google Fonts: Cinzel, Inter y JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Cinzel', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        zlive: {
+                            black: '#09090b',
+                            dark: '#121216',
+                            card: '#17181f',
+                            border: '#272934',
+                            red: '#dc2626',
+                            blood: '#991b1b',
+                            amber: '#f59e0b',
+                            gold: '#fbbf24',
+                            steel: '#94a3b8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #09090b;
+            color: #f3f4f6;
+            background-image: 
+                radial-gradient(circle at 12% 8%, rgba(220, 38, 38, 0.14) 0%, transparent 40%),
+                radial-gradient(circle at 88% 85%, rgba(245, 158, 11, 0.09) 0%, transparent 42%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #272934;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+
+        .metal-card {
+            background: linear-gradient(155deg, #17181f 0%, #101116 100%);
+            border: 1px solid #272934;
+            box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.8);
+            transition: border-color 0.2s ease;
+        }
+
+        .metal-card:hover {
+            border-color: rgba(220, 38, 38, 0.45);
+        }
+
+        .glow-red {
+            text-shadow: 0 0 18px rgba(220, 38, 38, 0.55);
+        }
+
+        .glow-amber {
+            text-shadow: 0 0 14px rgba(245, 158, 11, 0.45);
+        }
+
+        .chart-box-main {
+            position: relative;
+            width: 100%;
+            height: 390px;
+        }
+
+        .chart-box-weather {
+            position: relative;
+            width: 100%;
+            height: 340px;
+        }
+
+        .chart-box-genres {
+            position: relative;
+            width: 100%;
+            height: 380px;
+        }
+
+        .chart-box-bands {
+            position: relative;
+            width: 100%;
+            height: 460px;
+        }
+
+        @media (max-width: 640px) {
+            .chart-box-main { height: 310px; }
+            .chart-box-weather { height: 280px; }
+            .chart-box-genres { height: 330px; }
+            .chart-box-bands { height: 440px; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- Header / Navbar con Anclas Rápidas -->
+    <header class="border-b border-zlive-border bg-zlive-dark/95 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col lg:flex-row justify-between items-center gap-3">
+            <!-- Logo & Título -->
+            <div class="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-start">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-red-700 via-red-950 to-black border border-amber-500/40 flex items-center justify-center shadow-lg shadow-red-950/60 shrink-0">
+                        <i class="fa-solid fa-bolt-lightning text-xl text-amber-400"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h1 class="font-display text-lg sm:text-2xl font-extrabold tracking-wider uppercase text-white glow-red">
+                                Z! LIVE <span class="text-red-500">ZAMORA</span>
+                            </h1>
+                            <span class="px-2 py-0.5 text-[11px] font-mono font-bold uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30 rounded">
+                                2016–2026
+                            </span>
+                        </div>
+                        <p class="text-[11px] sm:text-xs text-zlive-steel">
+                            11 Años de Historia • 9 Ediciones Presenciales • Zamora, Castilla y León
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Botón CSV móvil -->
+                <button onclick="exportToCSV()" class="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zlive-card hover:bg-red-950/60 text-gray-200 border border-zlive-border text-xs font-medium transition cursor-pointer">
+                    <i class="fa-solid fa-file-csv text-red-500"></i>
+                    <span>CSV</span>
+                </button>
+            </div>
+
+            <!-- Navegación Rápida por Anclas -->
+            <nav aria-label="Navegación de secciones" class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto w-full lg:w-auto pb-1 lg:pb-0">
+                <a href="#sec-asistencia" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-zlive-black/80 hover:bg-red-600/20 text-gray-300 hover:text-white border border-zlive-border hover:border-red-500/40 whitespace-nowrap transition">
+                    <i class="fa-solid fa-users text-red-500 mr-1"></i>Asistencia
+                </a>
+                <a href="#sec-clima" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-zlive-black/80 hover:bg-sky-600/20 text-gray-300 hover:text-white border border-zlive-border hover:border-sky-500/40 whitespace-nowrap transition">
+                    <i class="fa-solid fa-temperature-high text-sky-400 mr-1"></i>Clima Verano
+                </a>
+                <a href="#sec-generos" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-zlive-black/80 hover:bg-amber-600/20 text-gray-300 hover:text-amber-300 border border-zlive-border hover:border-amber-500/40 whitespace-nowrap transition">
+                    <i class="fa-solid fa-compact-disc text-amber-400 mr-1"></i>Subgéneros
+                </a>
+                <a href="#sec-bandas" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-zlive-black/80 hover:bg-red-600/20 text-gray-300 hover:text-white border border-zlive-border hover:border-red-500/40 whitespace-nowrap transition">
+                    <i class="fa-solid fa-trophy text-amber-400 mr-1"></i>Frecuencia Bandas
+                </a>
+                <a href="#sec-archivo" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-zlive-black/80 hover:bg-red-600/20 text-gray-300 hover:text-white border border-zlive-border hover:border-red-500/40 whitespace-nowrap transition">
+                    <i class="fa-solid fa-table-list text-gray-400 mr-1"></i>Archivo
+                </a>
+                <button onclick="exportToCSV()" class="hidden lg:flex items-center gap-2 ml-2 px-3.5 py-1.5 rounded-lg bg-zlive-card hover:bg-red-950/60 text-gray-200 hover:text-amber-400 border border-zlive-border hover:border-red-500/50 text-xs font-semibold transition cursor-pointer shrink-0">
+                    <i class="fa-solid fa-file-csv text-red-500"></i>
+                    <span>Exportar CSV</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10">
+
+        <!-- Toast Banner -->
+        <div id="toast-banner" class="hidden fixed bottom-5 right-5 z-50 bg-zlive-card border-l-4 border-amber-500 text-white px-4 py-3 rounded-lg shadow-2xl flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-amber-400"></i>
+            <span id="toast-message" class="text-sm font-medium">Archivo CSV exportado correctamente.</span>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 1. KPIs HISTÓRICOS (2016 - 2026)                          -->
+        <!-- ========================================================= -->
+        <section aria-label="Indicadores Clave Históricos">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <!-- KPI 1 -->
+                <div class="metal-card rounded-xl p-5 relative overflow-hidden">
+                    <div class="absolute -right-3 -top-3 text-red-600/10 text-6xl pointer-events-none">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-zlive-steel font-semibold">Crecimiento de Público</p>
+                    <div class="mt-2 flex items-baseline gap-2">
+                        <span class="font-display text-2xl sm:text-3xl font-extrabold text-white">~18,000+</span>
+                        <span class="text-xs font-mono font-bold text-amber-400 bg-amber-500/15 px-2 py-0.5 rounded border border-amber-500/30">vs ~1,500 en 2016</span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                        De <strong class="text-gray-200">formato íntimo en 2016</strong> a cita referente del Heavy & Rock en España en el Recinto Ferial / IFPEZA.
+                    </p>
+                </div>
+
+                <!-- KPI 2 -->
+                <div class="metal-card rounded-xl p-5 relative overflow-hidden">
+                    <div class="absolute -right-3 -top-3 text-amber-500/10 text-6xl pointer-events-none">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-zlive-steel font-semibold">Ediciones Celebradas</p>
+                    <div class="mt-2 flex items-baseline gap-2">
+                        <span class="font-display text-2xl sm:text-3xl font-extrabold text-white">9 Ediciones</span>
+                        <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">2016–2026</span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                        Once años de trayectoria (sin edición en <strong class="text-gray-200">2020–2021</strong> por COVID-19).
+                    </p>
+                </div>
+
+                <!-- KPI 3 -->
+                <div class="metal-card rounded-xl p-5 relative overflow-hidden">
+                    <div class="absolute -right-3 -top-3 text-red-600/10 text-6xl pointer-events-none">
+                        <i class="fa-solid fa-guitar"></i>
+                    </div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-zlive-steel font-semibold">Expansión del Cartel</p>
+                    <div class="mt-2 flex items-baseline gap-2">
+                        <span class="font-display text-2xl sm:text-3xl font-extrabold text-white">10 → 30+</span>
+                        <span class="text-xs font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">Bandas/Ed.</span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                        De <strong class="text-gray-200">jornada inicial</strong> a tres días de programación con nombres internacionales y escena nacional.
+                    </p>
+                </div>
+
+                <!-- KPI 4 -->
+                <div class="metal-card rounded-xl p-5 relative overflow-hidden">
+                    <div class="absolute -right-3 -top-3 text-amber-500/10 text-6xl pointer-events-none">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <p class="text-xs font-mono uppercase tracking-wider text-zlive-steel font-semibold">Sede y Formato</p>
+                    <div class="mt-2 flex items-baseline gap-2">
+                        <span class="font-display text-2xl sm:text-3xl font-extrabold text-amber-400 glow-amber">3 Días</span>
+                        <span class="text-xs font-mono font-bold text-gray-300 bg-gray-700/40 px-2 py-0.5 rounded border border-gray-600/40">Zamora</span>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                        Consolidado en <strong class="text-gray-200">Zamora</strong> con doble escenario y fuerte apoyo de público de toda España y Portugal.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 2. GRÁFICA 1: EVOLUCIÓN DE ASISTENCIA Y CARTEL (2016-2026)-->
+        <!-- ========================================================= -->
+        <section id="sec-asistencia" class="metal-card rounded-xl p-5 sm:p-6 scroll-mt-24">
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-6 border-b border-zlive-border pb-4">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-6 bg-red-600 rounded-sm"></span>
+                        <h2 class="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-white">
+                            1. Evolución Histórica de Asistencia y Cartel (2016–2026)
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-zlive-steel mt-1">
+                        Comparativa entre asistencia estimada por edición en Zamora (barras) y número de bandas en cartel (línea dorada).
+                    </p>
+                </div>
+
+                <!-- Controles de Rango Temporal y Métrica -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <div class="flex items-center gap-1 bg-zlive-black p-1 rounded-lg border border-zlive-border">
+                        <button id="btn-range-all" onclick="setTimeRange('all')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold transition bg-amber-500 text-black shadow cursor-pointer">
+                            2016–2026 (Todo)
+                        </button>
+                        <button id="btn-range-early" onclick="setTimeRange('early')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer">
+                            2016–2019 (Inicial)
+                        </button>
+                        <button id="btn-range-modern" onclick="setTimeRange('modern')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer">
+                            2022–2026 (Consolidación)
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-1 bg-zlive-black p-1 rounded-lg border border-zlive-border">
+                        <button id="btn-mode-total" onclick="setAttendanceMode('total')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold transition bg-red-600 text-white shadow cursor-pointer">
+                            Asistencia Total
+                        </button>
+                        <button id="btn-mode-sold" onclick="setAttendanceMode('sold')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer">
+                            Abonos / Entradas
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-box-main">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+
+            <!-- Hitos Históricos -->
+            <div class="mt-4 pt-4 border-t border-zlive-border/60 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-gray-400">
+                <div class="flex items-start gap-2 bg-zlive-black/70 p-2.5 rounded-lg border border-zlive-border/50">
+                    <span class="px-1.5 py-0.5 rounded bg-amber-950 text-amber-400 font-mono font-bold border border-amber-800/50 shrink-0">2016–17</span>
+                    <span>Nacimiento en <strong>Zamora</strong> como cita cercana para los amantes del Heavy, Power y Rock clásico.</span>
+                </div>
+                <div class="flex items-start gap-2 bg-zlive-black/70 p-2.5 rounded-lg border border-zlive-border/50">
+                    <span class="px-1.5 py-0.5 rounded bg-red-950 text-red-400 font-mono font-bold border border-red-800/50 shrink-0">2018–19</span>
+                    <span>Crecimiento de cartel y público antes del parón sanitario global.</span>
+                </div>
+                <div class="flex items-start gap-2 bg-zlive-black/70 p-2.5 rounded-lg border border-zlive-border/50">
+                    <span class="px-1.5 py-0.5 rounded bg-gray-800 text-gray-300 font-mono font-bold border border-gray-600/50 shrink-0">2020–21</span>
+                    <span>Sin edición presencial por COVID-19; regreso fuerte en <strong>2022</strong>.</span>
+                </div>
+                <div class="flex items-start gap-2 bg-zlive-black/70 p-2.5 rounded-lg border border-zlive-border/50">
+                    <span class="px-1.5 py-0.5 rounded bg-sky-950 text-sky-300 font-mono font-bold border border-sky-800/50 shrink-0">2023–26</span>
+                    <span>Formato de tres días y consolidación de asistencia en la meseta zamorana.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 3. GRÁFICA 2: METEOROLOGÍA EN ZAMORA (2016 - 2026)       -->
+        <!-- ========================================================= -->
+        <section id="sec-clima" class="metal-card rounded-xl p-5 sm:p-6 scroll-mt-24">
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-6 border-b border-zlive-border pb-4">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-6 bg-sky-500 rounded-sm"></span>
+                        <h2 class="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-white">
+                            2. Meteorología Histórica en Zamora (2016–2026)
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-zlive-steel mt-1">
+                        Condiciones habituales de verano en Zamora: calor seco de meseta, noches templadas y episodios puntuales de tormenta o brisa.
+                    </p>
+                </div>
+
+                <!-- Filtros Meteorológicos -->
+                <div class="flex flex-wrap items-center gap-1 bg-zlive-black p-1 rounded-lg border border-zlive-border self-start xl:self-center">
+                    <button id="btn-weather-all" onclick="setWeatherFilter('all')" class="px-3 py-1.5 rounded-md text-xs font-semibold transition bg-sky-600 text-white shadow cursor-pointer">
+                        Todas (11)
+                    </button>
+                    <button id="btn-weather-rain" onclick="setWeatherFilter('rain')" class="px-3 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fa-solid fa-cloud-showers-heavy mr-1 text-sky-400"></i>Inestabilidad / Lluvia
+                    </button>
+                    <button id="btn-weather-dry" onclick="setWeatherFilter('dry')" class="px-3 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer">
+                        <i class="fa-solid fa-sun mr-1 text-amber-400"></i>Secas / Calor
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3 Mini-KPIs Climáticos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-zlive-black/80 border border-amber-500/25 rounded-xl p-4 flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl shrink-0">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-mono uppercase tracking-wider text-zlive-steel font-semibold">Predominio Seco y Cálido</p>
+                        <div class="flex items-baseline gap-2 mt-0.5">
+                            <span class="font-display text-xl font-extrabold text-amber-400">7 Ediciones</span>
+                            <span class="text-xs font-mono font-bold text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded">77.8%</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-0.5">Veranos secos y calurosos típicos de Castilla y León.</p>
+                    </div>
+                </div>
+
+                <div class="bg-zlive-black/80 border border-sky-500/25 rounded-xl p-4 flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-lg bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 text-xl shrink-0">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-mono uppercase tracking-wider text-zlive-steel font-semibold">Episodios Variables / Lluvia</p>
+                        <div class="flex items-baseline gap-2 mt-0.5">
+                            <span class="font-display text-xl font-extrabold text-sky-400">2 Ediciones</span>
+                            <span class="text-xs font-mono font-bold text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded">22.2%</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-0.5">Refrescos puntuales o nubosidad en jornadas de verano.</p>
+                    </div>
+                </div>
+
+                <div class="bg-zlive-black/80 border border-red-500/30 rounded-xl p-4 flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-lg bg-red-600/15 border border-red-500/35 flex items-center justify-center text-red-500 text-xl shrink-0">
+                        <i class="fa-solid fa-temperature-high"></i>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-mono uppercase tracking-wider text-zlive-steel font-semibold">Rasgo Climático Clave</p>
+                        <div class="mt-0.5">
+                            <span class="font-mono text-xs sm:text-sm font-bold text-red-400">Sol Intenso de Día • Noches Suaves</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-0.5">Hidratación y protección solar clave en las primeras horas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Gráfica de Barras Climáticas + Donut Proporción -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-9">
+                    <div class="chart-box-weather">
+                        <canvas id="weatherChart"></canvas>
+                    </div>
+                    <div class="mt-3 flex flex-wrap items-center gap-3 text-xs text-gray-300 bg-zlive-black/70 px-3 py-2 rounded-lg border border-zlive-border/50">
+                        <span class="font-mono font-bold text-gray-400 uppercase">Escala:</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-amber-500 inline-block"></span> 1: Seco / Calor</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-sky-400 inline-block"></span> 2: Variable / Brisa</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-blue-600 inline-block"></span> 3: Lluvia Puntual</span>
+                        <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-slate-700 inline-block"></span> 0: Cancelado (COVID)</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 bg-zlive-black/80 border border-zlive-border rounded-xl p-4 flex flex-col items-center justify-between h-full">
+                    <div class="text-center">
+                        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-white">
+                            Proporción Seco vs. Lluvia
+                        </h3>
+                        <p class="text-xs text-zlive-steel mt-0.5">9 ediciones celebradas</p>
+                    </div>
+                    <div class="relative w-44 h-44 my-3">
+                        <canvas id="weatherDonutChart"></canvas>
+                    </div>
+                    <div class="w-full pt-2.5 border-t border-zlive-border/60 text-xs space-y-1.5">
+                        <div class="flex justify-between text-amber-400 font-semibold">
+                            <span>☀️ Secas / Calor:</span>
+                            <span class="font-mono">7 (77.8%)</span>
+                        </div>
+                        <div class="flex justify-between text-sky-400 font-semibold">
+                            <span>🌧️ Lluvia / Variable:</span>
+                            <span class="font-mono">2 (22.2%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 4. GRÁFICA 3: DISTRIBUCIÓN DE SUBGÉNEROS MUSICALES        -->
+        <!-- ========================================================= -->
+        <section id="sec-generos" class="metal-card rounded-xl p-5 sm:p-6 scroll-mt-24">
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-6 border-b border-zlive-border pb-4">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-6 bg-amber-500 rounded-sm"></span>
+                        <h2 class="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-white">
+                            3. Distribución de Subgéneros Musicales en el Cartel (2016–2026)
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-zlive-steel mt-1">
+                        Composición estilística del festival en Zamora. Pasa el cursor o haz clic sobre cada género para ver su detalle.
+                    </p>
+                </div>
+
+                <!-- Controles de Era y Tipo de Vista -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <div class="flex items-center gap-1 bg-zlive-black p-1 rounded-lg border border-zlive-border">
+                        <button id="btn-genre-era-all" onclick="setGenreEra('all')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold bg-red-600 text-white shadow transition cursor-pointer">
+                            Histórico (2016–2026)
+                        </button>
+                        <button id="btn-genre-era-classic" onclick="setGenreEra('classic')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer">
+                            Etapa Inicial (2016–2019)
+                        </button>
+                        <button id="btn-genre-era-modern" onclick="setGenreEra('modern')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer">
+                            Etapa Moderna (2022–2026)
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-1 bg-zlive-black p-1 rounded-lg border border-zlive-border">
+                        <button id="btn-genre-view-doughnut" onclick="setGenreChartType('doughnut')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold bg-amber-500 text-black shadow transition cursor-pointer">
+                            <i class="fa-solid fa-chart-pie mr-1"></i>Vista Donut
+                        </button>
+                        <button id="btn-genre-view-bar" onclick="setGenreChartType('bar')" class="px-2.5 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer">
+                            <i class="fa-solid fa-chart-bar mr-1"></i>Barras Horizontales
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                <div class="lg:col-span-7 bg-zlive-black/60 border border-zlive-border/70 rounded-xl p-4 flex flex-col justify-center">
+                    <div class="chart-box-genres">
+                        <canvas id="genreChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col justify-between bg-zlive-black/90 border border-red-900/40 rounded-xl p-5">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-zlive-border">
+                            <span class="text-xs font-mono uppercase tracking-wider text-zlive-steel">Ficha del Subgénero</span>
+                            <span id="genre-detail-pct" class="px-2.5 py-1 text-xs font-mono font-bold rounded bg-red-600/20 text-red-400 border border-red-500/30">
+                                26.0% del cartel
+                            </span>
+                        </div>
+
+                        <h3 id="genre-detail-title" class="font-display text-lg sm:text-xl font-extrabold text-amber-400 uppercase tracking-wide mb-2">
+                            Heavy Metal Tradicional & Hard Rock
+                        </h3>
+
+                        <p id="genre-detail-desc" class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-5">
+                            Columna vertebral de Z! Live desde su arranque en Zamora, combinando himnos clásicos de Heavy Metal y Hard Rock con fuerte presencia nacional e internacional.
+                        </p>
+
+                        <div class="mb-4">
+                            <p class="text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">
+                                <i class="fa-solid fa-star text-amber-400 mr-1.5"></i>Bandas Emblemáticas de Referencia:
+                            </p>
+                            <div id="genre-detail-bands" class="flex flex-wrap gap-2"></div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-zlive-border/70">
+                        <p class="text-[11px] font-mono uppercase text-gray-500 mb-2">Selecciona un género para inspeccionar:</p>
+                        <div id="genre-quick-pills" class="flex flex-wrap gap-1.5"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 5. GRÁFICA 4: FRECUENCIA DE PARTICIPACIÓN DE BANDAS       -->
+        <!-- ========================================================= -->
+        <section id="sec-bandas" class="metal-card rounded-xl p-5 sm:p-6 scroll-mt-24">
+            <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-6 border-b border-zlive-border pb-4">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-6 bg-red-600 rounded-sm"></span>
+                        <h2 class="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-white">
+                            4. Frecuencia de Participación de Bandas (2016–2026)
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-zlive-steel mt-1">
+                        Ranking de bandas recurrentes de referencia en la historia de Z! Live en Zamora, codificadas por subgénero.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-1 bg-zlive-black p-1 rounded-lg border border-zlive-border self-start xl:self-center">
+                    <button id="btn-rank-all" onclick="setBandRankingFilter('all')" class="px-3 py-1.5 rounded-md text-xs font-semibold bg-amber-500 text-black shadow transition cursor-pointer">
+                        Top Histórico (2016–2026)
+                    </button>
+                    <button id="btn-rank-90s" onclick="setBandRankingFilter('90s')" class="px-3 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer">
+                        Etapa Inicial (2016–2019)
+                    </button>
+                    <button id="btn-rank-modern" onclick="setBandRankingFilter('modern')" class="px-3 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer">
+                        Etapa Moderna (2022–2026)
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 mb-4 text-xs bg-zlive-black/70 px-3.5 py-2.5 rounded-lg border border-zlive-border/60">
+                <span class="font-mono font-bold text-gray-400 uppercase">Código por Subgénero:</span>
+                <span class="flex items-center gap-1.5 text-gray-200"><span class="w-3 h-3 rounded-sm bg-[#dc2626] inline-block"></span> Heavy / Hard Rock</span>
+                <span class="flex items-center gap-1.5 text-gray-200"><span class="w-3 h-3 rounded-sm bg-[#f59e0b] inline-block"></span> Power / Symphonic</span>
+                <span class="flex items-center gap-1.5 text-gray-200"><span class="w-3 h-3 rounded-sm bg-[#ea580c] inline-block"></span> Thrash / Groove</span>
+                <span class="flex items-center gap-1.5 text-gray-200"><span class="w-3 h-3 rounded-sm bg-[#991b1b] inline-block"></span> Death / Melodic Death</span>
+                <span class="flex items-center gap-1.5 text-gray-200"><span class="w-3 h-3 rounded-sm bg-[#10b981] inline-block"></span> Folk / Pagan</span>
+            </div>
+
+            <div class="chart-box-bands bg-zlive-black/50 border border-zlive-border/60 rounded-xl p-3 sm:p-4">
+                <canvas id="bandsBarChart"></canvas>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-zlive-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-gray-400">
+                <span><i class="fa-solid fa-crown text-amber-400 mr-1.5"></i>Datos de referencia compilados del ciclo 2016–2026 en Zamora.</span>
+                <span class="font-mono text-gray-500">Ciclo 2016–2026</span>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 6. TABLA BUSCABLE: ARCHIVO HISTÓRICO DE BANDAS            -->
+        <!-- ========================================================= -->
+        <section id="sec-archivo" class="metal-card rounded-xl p-5 sm:p-6 scroll-mt-24">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6 border-b border-zlive-border pb-4">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-6 bg-amber-500 rounded-sm"></span>
+                        <h2 class="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-white">
+                            5. Archivo Histórico de Bandas Recurrentes (2016–2026)
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-zlive-steel mt-1">
+                        Explora las bandas destacadas del ciclo en Zamora: filtra por nombre, origen, subgénero o etapa.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row flex-wrap gap-2.5">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+                        <input 
+                            type="text" 
+                            id="band-search" 
+                            oninput="filterBandsTable()" 
+                            placeholder="Buscar banda, país o año..." 
+                            class="w-full sm:w-52 pl-8 pr-3 py-2 bg-zlive-black border border-zlive-border rounded-lg text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-500 transition"
+                        >
+                    </div>
+
+                    <select 
+                        id="genre-filter" 
+                        onchange="filterBandsTable()" 
+                        class="px-3 py-2 bg-zlive-black border border-zlive-border rounded-lg text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-amber-500 transition cursor-pointer"
+                    >
+                        <option value="ALL">Todos los Subgéneros</option>
+                        <option value="Heavy Metal">Heavy / Hard Rock</option>
+                        <option value="Thrash Metal">Thrash / Groove</option>
+                        <option value="Power Metal">Power / Symphonic</option>
+                        <option value="Death Metal">Death / Melodic Death</option>
+                        <option value="Folk Metal">Folk / Pagan</option>
+                    </select>
+
+                    <select 
+                        id="decade-filter" 
+                        onchange="filterBandsTable()" 
+                        class="px-3 py-2 bg-zlive-black border border-zlive-border rounded-lg text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-amber-500 transition cursor-pointer"
+                    >
+                        <option value="ALL">Todas las Etapas</option>
+                        <option value="2010s">2016–2019</option>
+                        <option value="2020s">2022–2026</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-zlive-border text-xs font-mono uppercase tracking-wider text-zlive-steel bg-zlive-black/70">
+                            <th class="py-3 px-3 sm:px-4 rounded-tl-lg">#</th>
+                            <th class="py-3 px-3 sm:px-4">Banda / Artista</th>
+                            <th class="py-3 px-3 sm:px-4">Origen</th>
+                            <th class="py-3 px-3 sm:px-4">Subgénero Principal</th>
+                            <th class="py-3 px-3 sm:px-4 text-center">Debut Ref.</th>
+                            <th class="py-3 px-3 sm:px-4 text-center">Shows</th>
+                            <th class="py-3 px-3 sm:px-4 rounded-tr-lg">Ediciones Destacadas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bands-table-body" class="divide-y divide-zlive-border/50 text-xs sm:text-sm"></tbody>
+                </table>
+            </div>
+
+            <div id="no-results-msg" class="hidden py-8 text-center text-gray-400">
+                <i class="fa-solid fa-guitar text-3xl text-gray-600 mb-2"></i>
+                <p class="text-sm">No se encontraron bandas que coincidan con los filtros seleccionados.</p>
+                <button onclick="resetFilters()" class="mt-3 px-3 py-1.5 text-xs bg-red-600/20 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-600 hover:text-white transition cursor-pointer">
+                    Restablecer filtros
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zlive-border bg-zlive-dark py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zlive-steel">
+            <div class="flex items-center gap-2">
+                <span class="font-display font-bold text-gray-200 tracking-wider uppercase">Z! LIVE ROCK FEST ZAMORA • 2016–2026</span>
+                <span>|</span>
+                <span>Zamora, Castilla y León</span>
+            </div>
+            <p class="text-center sm:text-right">
+                Archivo histórico compilado (2016–2026). Incluye pausa presencial COVID-19 (2020–2021).
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const historicalData = [
+            { year: '2016', era: 'early', attendanceTotal: 1500, ticketsSold: 1500, bands: 10, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Calor de Verano', weatherNote: 'Jornada veraniega seca y calurosa en Zamora.', note: 'Arranque del festival en Zamora con formato inicial y espíritu cercano.' },
+            { year: '2017', era: 'early', attendanceTotal: 2500, ticketsSold: 2500, bands: 14, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Sol y Calor', weatherNote: 'Sol intenso durante la tarde y noche agradable en la meseta.', note: 'Segunda edición con ampliación de cartel y mayor afluencia.' },
+            { year: '2018', era: 'early', attendanceTotal: 4500, ticketsSold: 4500, bands: 18, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Ola de Calor', weatherNote: 'Calor seco notable durante el fin de semana zamorano.', note: 'Crecimiento de público procedente de distintas regiones de España y Portugal.' },
+            { year: '2019', era: 'early', attendanceTotal: 7500, ticketsSold: 7500, bands: 22, rained: true, weatherLevel: 2, weatherLabel: 'Variable / Brisa y Nubes', weatherNote: 'Nubes altas y brisa que aliviaron el calor en tramos de la jornada.', note: 'Consolidación previa al parón de 2020–2021.' },
+            { year: '2020', era: 'modern', attendanceTotal: 0, ticketsSold: 0, bands: 0, rained: null, weatherLevel: 0, weatherLabel: 'Cancelado (COVID-19)', weatherNote: 'Edición presencial cancelada por pandemia.', note: 'CANCELADO por pandemia COVID-19.' },
+            { year: '2021', era: 'modern', attendanceTotal: 0, ticketsSold: 0, bands: 0, rained: null, weatherLevel: 0, weatherLabel: 'Cancelado (COVID-19)', weatherNote: 'Edición presencial cancelada por restricciones sanitarias.', note: 'CANCELADO por restricciones sanitarias COVID-19.' },
+            { year: '2022', era: 'modern', attendanceTotal: 12000, ticketsSold: 11000, bands: 26, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Sol y Calor', weatherNote: 'Verano cálido y seco en el regreso tras la pandemia.', note: 'Gran salto de escala en el regreso del festival en Zamora.' },
+            { year: '2023', era: 'modern', attendanceTotal: 15000, ticketsSold: 13500, bands: 28, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Calor Estival', weatherNote: 'Calor veraniego seco en las jornadas de junio en Zamora.', note: 'Consolidación de programación y público en recinto zamorano.' },
+            { year: '2024', era: 'modern', attendanceTotal: 16500, ticketsSold: 15000, bands: 30, rained: true, weatherLevel: 3, weatherLabel: 'Lluvia Puntual / Inestabilidad', weatherNote: 'Episodio puntual de lluvia/inestabilidad sin frenar el desarrollo del cartel.', note: 'Mayor amplitud de cartel internacional y estatal en Zamora.' },
+            { year: '2025', era: 'modern', attendanceTotal: 17500, ticketsSold: 16000, bands: 32, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Sol y Calor', weatherNote: 'Jornadas veraniegas cálidas y despejadas.', note: 'Crecimiento sostenido y fidelización del público rockero y metalero.' },
+            { year: '2026', era: 'modern', attendanceTotal: 18500, ticketsSold: 17000, bands: 32, rained: false, weatherLevel: 1, weatherLabel: 'Seco / Clima Estival', weatherNote: 'Clima veraniego seco y cálido característico de Zamora.', note: 'Undécimo año desde el inicio en 2016 consolidando la cita en Zamora.' }
+        ];
+
+        const genresByEra = {
+            all: [
+                {
+                    name: 'Heavy Metal Tradicional & Hard Rock',
+                    shortName: 'Heavy / Hard Rock',
+                    percentage: 26.0,
+                    color: '#dc2626',
+                    desc: 'Núcleo histórico del festival en Zamora, con fuerte peso del Heavy clásico, Hard Rock y referentes de la escena estatal e internacional.',
+                    bands: ['Saurom', 'Tierra Santa', 'Lujuria', 'Avalanch', 'Saratoga', 'Doro']
+                },
+                {
+                    name: 'Power Metal & Symphonic',
+                    shortName: 'Power / Symphonic',
+                    percentage: 22.0,
+                    color: '#f59e0b',
+                    desc: 'Uno de los estilos más celebrados por los asistentes, con estribillos coreables y producciones épicas.',
+                    bands: ['Stratovarius', 'Sonata Arctica', 'Rhapsody of Fire', 'Warkings', 'Delain']
+                },
+                {
+                    name: 'Thrash Metal & Groove',
+                    shortName: 'Thrash / Groove',
+                    percentage: 19.0,
+                    color: '#ea580c',
+                    desc: 'Riffs rápidos y directos que aportan potencia y energía constante en los escenarios.',
+                    bands: ['Angelus Apatrida', 'Crisix', 'Legion', 'Soziedad Alkoholika']
+                },
+                {
+                    name: 'Death Metal & Melodic Death',
+                    shortName: 'Death / Melodic Death',
+                    percentage: 17.5,
+                    color: '#991b1b',
+                    desc: 'Presencia destacada del metal extremo y melódico en las franjas más intensas del cartel.',
+                    bands: ['Eluveitie', 'Dark Tranquillity', 'Vita Imana', 'Amon Amarth']
+                },
+                {
+                    name: 'Folk, Pagan & Alternativo',
+                    shortName: 'Folk / Pagan / Alt.',
+                    percentage: 15.5,
+                    color: '#10b981',
+                    desc: 'Sonidos folclóricos y de raíz que complementan la oferta estilística de cada edición.',
+                    bands: ['Mägo de Oz', ' Celtian', 'Lándevir', 'Korpiklaani']
+                }
+            ],
+            classic: [
+                {
+                    name: 'Heavy Metal Tradicional & Hard Rock',
+                    shortName: 'Heavy / Hard Rock',
+                    percentage: 32.0,
+                    color: '#dc2626',
+                    desc: 'En los primeros años (2016–2019) el Heavy y el Hard Rock marcaron la identidad inicial del evento en Zamora.',
+                    bands: ['Lujuria', 'Tierra Santa', 'Saratoga', 'Avalanch']
+                },
+                {
+                    name: 'Power Metal & Symphonic',
+                    shortName: 'Power / Symphonic',
+                    percentage: 24.0,
+                    color: '#f59e0b',
+                    desc: 'Fuerte presencia melódica y épica en las primeras ediciones.',
+                    bands: ['Stratovarius', 'Rhapsody', 'Warkings']
+                },
+                {
+                    name: 'Thrash Metal & Groove',
+                    shortName: 'Thrash / Groove',
+                    percentage: 18.0,
+                    color: '#ea580c',
+                    desc: 'Bandas estatales e internacionales de Thrash impulsando el ritmo del cartel.',
+                    bands: ['Angelus Apatrida', 'Crisix', 'Soziedad Alkoholika']
+                },
+                {
+                    name: 'Death Metal & Melodic Death',
+                    shortName: 'Death / Melodic Death',
+                    percentage: 14.0,
+                    color: '#991b1b',
+                    desc: 'Primeras incorporaciones de metal extremo melódico.',
+                    bands: ['Vita Imana', 'Eluveitie']
+                },
+                {
+                    name: 'Folk, Pagan & Alternativo',
+                    shortName: 'Folk / Pagan / Alt.',
+                    percentage: 12.0,
+                    color: '#10b981',
+                    desc: 'Toques folk y festivos en la programación.',
+                    bands: ['Saurom', 'Lándevir']
+                }
+            ],
+            modern: [
+                {
+                    name: 'Heavy Metal Tradicional & Hard Rock',
+                    shortName: 'Heavy / Hard Rock',
+                    percentage: 23.0,
+                    color: '#dc2626',
+                    desc: 'Mantiene su peso principal combinando leyendas consolidadas y bandas de gira internacional.',
+                    bands: ['Doro', 'Saurom', 'Tierra Santa', 'Saratoga']
+                },
+                {
+                    name: 'Power Metal & Symphonic',
+                    shortName: 'Power / Symphonic',
+                    percentage: 21.0,
+                    color: '#f59e0b',
+                    desc: 'Gran acogida de público en las jornadas principales en Zamora.',
+                    bands: ['Sonata Arctica', 'Stratovarius', 'Delain', 'Warkings']
+                },
+                {
+                    name: 'Thrash Metal & Groove',
+                    shortName: 'Thrash / Groove',
+                    percentage: 20.0,
+                    color: '#ea580c',
+                    desc: 'Alta intensidad en los escenarios principales.',
+                    bands: ['Angelus Apatrida', 'Crisix', 'Legion']
+                },
+                {
+                    name: 'Death Metal & Melodic Death',
+                    shortName: 'Death / Melodic Death',
+                    percentage: 19.5,
+                    color: '#991b1b',
+                    desc: 'Mayor peso de bandas de metal extremo y melódico en el cartel reciente.',
+                    bands: ['Dark Tranquillity', 'Eluveitie', 'Vita Imana']
+                },
+                {
+                    name: 'Folk, Pagan & Alternativo',
+                    shortName: 'Folk / Pagan / Alt.',
+                    percentage: 16.5,
+                    color: '#10b981',
+                    desc: 'Crecimiento de propuestas folk y de fusión.',
+                    bands: ['Mägo de Oz', 'Celtian', 'Korpiklaani']
+                }
+            ]
+        };
+
+        const genreColorMap = {
+            'Heavy Metal': '#dc2626',
+            'Power Metal': '#f59e0b',
+            'Thrash Metal': '#ea580c',
+            'Death Metal': '#991b1b',
+            'Folk Metal': '#10b981'
+        };
+
+        const historicalBands = [
+            { name: 'Saurom', country: 'España', genre: 'Folk Metal', genreFull: 'Folk / Heavy Metal', debut: 2017, count: 4, count90s: 2, countModern: 2, decades: ['2010s', '2020s'], note: 'Uno de los nombres más queridos y coreados en el ciclo de Zamora.', highlights: '2017, 2019, 2022, 2024' },
+            { name: 'Angelus Apatrida', country: 'España', genre: 'Thrash Metal', genreFull: 'Thrash Metal', debut: 2018, count: 4, count90s: 1, countModern: 3, decades: ['2010s', '2020s'], note: 'Referente absoluto del Thrash estatal en el festival.', highlights: '2018, 2022, 2024, 2026' },
+            { name: 'Tierra Santa', country: 'España', genre: 'Heavy Metal', genreFull: 'Heavy / Power Metal', debut: 2016, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'Clásico del Heavy español presente desde los primeros años.', highlights: '2016, 2022, 2025' },
+            { name: 'Saratoga', country: 'España', genre: 'Heavy Metal', genreFull: 'Heavy Metal', debut: 2016, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'Himnos directos y conexión constante con el público.', highlights: '2016, 2019, 2023' },
+            { name: 'Stratovarius', country: 'Finlandia', genre: 'Power Metal', genreFull: 'Power Metal', debut: 2018, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'Referente internacional del Power Metal escandinavo.', highlights: '2018, 2023, 2025' },
+            { name: 'Crisix', country: 'España', genre: 'Thrash Metal', genreFull: 'Thrash Metal', debut: 2017, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'Directos explosivos y energía de principio a fin.', highlights: '2017, 2022, 2024' },
+            { name: 'Eluveitie', country: 'Suiza', genre: 'Death Metal', genreFull: 'Folk / Melodic Death', debut: 2019, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'Fusión de metal extremo y folk celta de gran impacto.', highlights: '2019, 2023, 2026' },
+            { name: 'Lujuria', country: 'España', genre: 'Heavy Metal', genreFull: 'Heavy Metal', debut: 2016, count: 2, count90s: 1, countModern: 1, decades: ['2010s', '2020s'], note: 'Heavy Metal castizo y reivindicativo desde el inicio en Zamora.', highlights: '2016, 2022' },
+            { name: 'Avalanch', country: 'España', genre: 'Power Metal', genreFull: 'Power / Heavy Metal', debut: 2017, count: 2, count90s: 1, countModern: 1, decades: ['2010s', '2020s'], note: 'Grandes composiciones melódicas en el cartel.', highlights: '2017, 2023' },
+            { name: 'Vita Imana', country: 'España', genre: 'Death Metal', genreFull: 'Groove / Death Metal', debut: 2018, count: 2, count90s: 1, countModern: 1, decades: ['2010s', '2020s'], note: 'Potencia rítmica y percusión contundente en directo.', highlights: '2018, 2024' },
+            { name: 'Sonata Arctica', country: 'Finlandia', genre: 'Power Metal', genreFull: 'Power Metal', debut: 2022, count: 2, count90s: 0, countModern: 2, decades: ['2020s'], note: 'Melodía nórdica en la etapa moderna del festival.', highlights: '2022, 2025' },
+            { name: 'Dark Tranquillity', country: 'Suecia', genre: 'Death Metal', genreFull: 'Melodic Death Metal', debut: 2023, count: 2, count90s: 0, countModern: 2, decades: ['2020s'], note: 'Pioneros del sonido de Gotemburgo en Zamora.', highlights: '2023, 2026' }
+        ];
+
+        let attendanceChartInstance = null;
+        let weatherChartInstance = null;
+        let weatherDonutChartInstance = null;
+        let genreChartInstance = null;
+        let bandsBarChartInstance = null;
+
+        let currentAttendanceMode = 'total';
+        let currentTimeRange = 'all';
+        let currentWeatherFilter = 'all';
+        let currentGenreEra = 'all';
+        let currentGenreChartType = 'doughnut';
+        let currentBandRankFilter = 'all';
+        let chartsInitialized = false;
+
+        function initializeAllCharts() {
+            if (typeof Chart === 'undefined' || chartsInitialized) return;
+            chartsInitialized = true;
+
+            try {
+                Chart.defaults.color = '#94a3b8';
+                Chart.defaults.font.family = "'Inter', sans-serif";
+
+                initAttendanceChart();
+                initWeatherChart();
+                initWeatherDonutChart();
+                initGenreChart();
+                updateGenreDetailBox(0);
+                initBandsBarChart();
+                renderBandsTable(historicalBands);
+            } catch (err) {
+                console.error('Error al inicializar gráficas:', err);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeAllCharts);
+        window.addEventListener('load', initializeAllCharts);
+
+        function getFilteredHistoricalData() {
+            if (currentTimeRange === 'early') return historicalData.filter(d => d.era === 'early');
+            if (currentTimeRange === 'modern') return historicalData.filter(d => d.era === 'modern');
+            return historicalData;
+        }
+
+        function initAttendanceChart() {
+            const canvas = document.getElementById('attendanceChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const dataset = getFilteredHistoricalData();
+
+            const labels = dataset.map(d => d.year);
+            const attendanceValues = dataset.map(d => currentAttendanceMode === 'total' ? d.attendanceTotal : d.ticketsSold);
+            const bandsValues = dataset.map(d => d.bands);
+
+            const barColors = dataset.map(d => {
+                if (d.year === '2020' || d.year === '2021') return 'rgba(100, 116, 139, 0.25)';
+                if (parseInt(d.year) <= 2019) return 'rgba(217, 119, 6, 0.82)';
+                return currentAttendanceMode === 'total' ? 'rgba(220, 38, 38, 0.85)' : 'rgba(245, 158, 11, 0.85)';
+            });
+
+            if (attendanceChartInstance) attendanceChartInstance.destroy();
+
+            attendanceChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: currentAttendanceMode === 'total' ? 'Asistencia Estimada Total' : 'Abonos / Entradas Ref.',
+                            data: attendanceValues,
+                            backgroundColor: barColors,
+                            borderColor: '#ef4444',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            yAxisID: 'y',
+                            order: 2
+                        },
+                        {
+                            label: 'Bandas en Cartel',
+                            data: bandsValues,
+                            type: 'line',
+                            borderColor: '#fbbf24',
+                            backgroundColor: '#fbbf24',
+                            borderWidth: 2.5,
+                            pointRadius: 4.5,
+                            pointHoverRadius: 7,
+                            pointBackgroundColor: '#09090b',
+                            pointBorderColor: '#fbbf24',
+                            pointBorderWidth: 2,
+                            tension: 0.28,
+                            yAxisID: 'y1',
+                            order: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { usePointStyle: true, padding: 16, color: '#e2e8f0', font: { size: 12, weight: '600' } }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(16, 17, 22, 0.96)',
+                            titleColor: '#fbbf24',
+                            bodyColor: '#f3f4f6',
+                            borderColor: '#dc2626',
+                            borderWidth: 1,
+                            padding: 12,
+                            titleFont: { family: 'Cinzel', size: 15, weight: 'bold' },
+                            callbacks: {
+                                label: function(context) {
+                                    const item = dataset[context.dataIndex];
+                                    if (item.year === '2020' || item.year === '2021') {
+                                        return context.datasetIndex === 0
+                                            ? ' Evento Presencial Cancelado (COVID-19)'
+                                            : ' 0 bandas presenciales';
+                                    }
+                                    return ` ${context.dataset.label}: ${context.parsed.y.toLocaleString('es-ES')}`;
+                                },
+                                afterBody: function(context) {
+                                    const item = dataset[context[0].dataIndex];
+                                    return [
+                                        `──────────────────────────`,
+                                        `Entradas/abonos ref.: ${item.ticketsSold.toLocaleString('es-ES')}`,
+                                        `Asistencia ref.: ${item.attendanceTotal.toLocaleString('es-ES')}`,
+                                        `Hito: ${item.note}`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(39, 42, 53, 0.45)' }, ticks: { color: '#cbd5e1', font: { size: 11 } } },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: { display: true, text: 'Asistentes / Entradas', color: '#ef4444', font: { size: 11, weight: 'bold' } },
+                            grid: { color: 'rgba(39, 42, 53, 0.45)' },
+                            suggestedMax: 22000,
+                            ticks: { callback: v => v >= 1000 ? (v / 1000) + 'k' : v }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: { display: true, text: 'Número de Bandas', color: '#fbbf24', font: { size: 11, weight: 'bold' } },
+                            grid: { drawOnChartArea: false },
+                            suggestedMax: 40
+                        }
+                    }
+                }
+            });
+        }
+
+        function setTimeRange(range) {
+            currentTimeRange = range;
+            ['all', 'early', 'modern'].forEach(r => {
+                const btn = document.getElementById(`btn-range-${r}`);
+                btn.className = r === range
+                    ? 'px-2.5 py-1.5 rounded-md text-xs font-semibold transition bg-amber-500 text-black shadow cursor-pointer'
+                    : 'px-2.5 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer';
+            });
+            initAttendanceChart();
+        }
+
+        function setAttendanceMode(mode) {
+            currentAttendanceMode = mode;
+            const btnTotal = document.getElementById('btn-mode-total');
+            const btnSold = document.getElementById('btn-mode-sold');
+            if (mode === 'total') {
+                btnTotal.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold transition bg-red-600 text-white shadow cursor-pointer';
+                btnSold.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer';
+            } else {
+                btnSold.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold transition bg-amber-500 text-black shadow cursor-pointer';
+                btnTotal.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer';
+            }
+            initAttendanceChart();
+        }
+
+        function getFilteredWeatherData() {
+            if (currentWeatherFilter === 'rain') return historicalData.filter(d => d.rained === true);
+            if (currentWeatherFilter === 'dry') return historicalData.filter(d => d.rained === false);
+            return historicalData;
+        }
+
+        function initWeatherChart() {
+            const canvas = document.getElementById('weatherChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const dataset = getFilteredWeatherData();
+
+            const labels = dataset.map(d => d.year);
+            const values = dataset.map(d => d.weatherLevel === 0 ? 0.25 : d.weatherLevel);
+
+            const bgColors = dataset.map(d => {
+                if (d.weatherLevel === 0) return 'rgba(51, 65, 85, 0.45)';
+                if (d.weatherLevel === 1) return '#eab308';
+                if (d.weatherLevel === 2) return '#38bdf8';
+                return '#2563eb';
+            });
+
+            if (weatherChartInstance) weatherChartInstance.destroy();
+
+            weatherChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Nivel Climático',
+                        data: values,
+                        backgroundColor: bgColors,
+                        borderColor: 'rgba(9, 9, 11, 0.8)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(16, 17, 22, 0.97)',
+                            titleColor: '#fbbf24',
+                            bodyColor: '#f3f4f6',
+                            borderColor: '#38bdf8',
+                            borderWidth: 1,
+                            padding: 12,
+                            titleFont: { family: 'Cinzel', size: 15, weight: 'bold' },
+                            callbacks: {
+                                title: ctx => `Z! Live Zamora ${dataset[ctx[0].dataIndex].year}`,
+                                label: ctx => {
+                                    const item = dataset[ctx.dataIndex];
+                                    if (item.weatherLevel === 0) return ' 🚫 EVENTO CANCELADO (COVID-19)';
+                                    return item.rained ? ' 🌧️ LLUVIA / VARIABLE' : ' ☀️ SECO / CALOR DE VERANO';
+                                },
+                                afterLabel: ctx => {
+                                    const item = dataset[ctx.dataIndex];
+                                    return [`Estado: ${item.weatherLabel}`, `──────────────────────────`, `${item.weatherNote}`];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(39, 42, 53, 0.45)' }, ticks: { color: '#cbd5e1', font: { size: 11 } } },
+                        y: {
+                            min: 0,
+                            max: 3.5,
+                            grid: { color: 'rgba(39, 42, 53, 0.45)' },
+                            ticks: {
+                                stepSize: 1,
+                                color: '#94a3b8',
+                                font: { size: 11, weight: '600' },
+                                callback: v => ({ 0: 'Cancelado', 1: '☀️ Seco / Calor', 2: '🌦️ Variable', 3: '🌧️ Lluvia Puntual' }[v] || '')
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initWeatherDonutChart() {
+            const canvas = document.getElementById('weatherDonutChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (weatherDonutChartInstance) weatherDonutChartInstance.destroy();
+
+            weatherDonutChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Secas / Calor', 'Lluvia / Variable'],
+                    datasets: [{
+                        data: [7, 2],
+                        backgroundColor: ['#eab308', '#2563eb'],
+                        borderColor: '#111216',
+                        borderWidth: 3,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '64%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(16, 17, 22, 0.96)',
+                            titleColor: '#fbbf24',
+                            borderColor: '#38bdf8',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: ctx => ` ${ctx.label}: ${ctx.parsed} ed. (${((ctx.parsed / 9) * 100).toFixed(1)}%)`
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function setWeatherFilter(filter) {
+            currentWeatherFilter = filter;
+            ['all', 'rain', 'dry'].forEach(f => {
+                const btn = document.getElementById(`btn-weather-${f}`);
+                if (f === filter) {
+                    const activeColor = f === 'dry' ? 'bg-amber-500 text-black' : 'bg-sky-600 text-white';
+                    btn.className = `px-3 py-1.5 rounded-md text-xs font-semibold transition ${activeColor} shadow cursor-pointer`;
+                } else {
+                    btn.className = 'px-3 py-1.5 rounded-md text-xs font-semibold transition text-gray-400 hover:text-white cursor-pointer';
+                }
+            });
+            initWeatherChart();
+        }
+
+        function initGenreChart() {
+            const canvas = document.getElementById('genreChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const currentGenres = genresByEra[currentGenreEra];
+            const isDoughnut = currentGenreChartType === 'doughnut';
+
+            if (genreChartInstance) genreChartInstance.destroy();
+
+            genreChartInstance = new Chart(ctx, {
+                type: currentGenreChartType,
+                data: {
+                    labels: currentGenres.map(g => `${g.shortName} (${g.percentage}%)`),
+                    datasets: [{
+                        label: '% del Cartel',
+                        data: currentGenres.map(g => g.percentage),
+                        backgroundColor: currentGenres.map(g => g.color),
+                        borderColor: '#111216',
+                        borderWidth: isDoughnut ? 3 : 1,
+                        borderRadius: isDoughnut ? 0 : 5,
+                        hoverOffset: isDoughnut ? 10 : 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: isDoughnut ? 'x' : 'y',
+                    cutout: isDoughnut ? '56%' : undefined,
+                    onHover: (event, elements) => {
+                        if (elements && elements.length > 0) updateGenreDetailBox(elements[0].index);
+                    },
+                    onClick: (event, elements) => {
+                        if (elements && elements.length > 0) updateGenreDetailBox(elements[0].index);
+                    },
+                    plugins: {
+                        legend: {
+                            display: isDoughnut,
+                            position: window.innerWidth < 640 ? 'bottom' : 'right',
+                            labels: { color: '#e2e8f0', boxWidth: 12, padding: 10, font: { size: 11.5, weight: '500' } }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(16, 17, 22, 0.97)',
+                            titleColor: '#fbbf24',
+                            bodyColor: '#f3f4f6',
+                            borderColor: '#dc2626',
+                            borderWidth: 1,
+                            padding: 12,
+                            callbacks: { label: ctx => ` Participación estimada en cartel: ${ctx.parsed}%` }
+                        }
+                    },
+                    scales: isDoughnut ? {} : {
+                        x: {
+                            beginAtZero: true,
+                            max: 36,
+                            grid: { color: 'rgba(39, 42, 53, 0.45)' },
+                            ticks: { color: '#94a3b8', callback: v => v + '%' }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#f3f4f6', font: { size: 11.5, weight: '600' } }
+                        }
+                    }
+                }
+            });
+
+            renderGenreQuickPills();
+        }
+
+        function renderGenreQuickPills() {
+            const container = document.getElementById('genre-quick-pills');
+            if (!container) return;
+            const currentGenres = genresByEra[currentGenreEra];
+            container.innerHTML = currentGenres.map((g, idx) => `
+                <button onclick="updateGenreDetailBox(${idx})" class="px-2 py-1 rounded text-[11px] font-medium bg-zlive-card hover:bg-red-950/60 text-gray-300 hover:text-white border border-zlive-border transition flex items-center gap-1.5 cursor-pointer">
+                    <span class="w-2 h-2 rounded-full inline-block" style="background-color:${g.color}"></span>
+                    <span>${g.shortName}</span>
+                </button>
+            `).join('');
+        }
+
+        function setGenreEra(era) {
+            currentGenreEra = era;
+            ['all', 'classic', 'modern'].forEach(e => {
+                const btn = document.getElementById(`btn-genre-era-${e}`);
+                btn.className = e === era
+                    ? 'px-2.5 py-1.5 rounded-md text-xs font-semibold bg-red-600 text-white shadow transition cursor-pointer'
+                    : 'px-2.5 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer';
+            });
+            initGenreChart();
+            updateGenreDetailBox(0);
+        }
+
+        function setGenreChartType(type) {
+            currentGenreChartType = type;
+            const btnDoughnut = document.getElementById('btn-genre-view-doughnut');
+            const btnBar = document.getElementById('btn-genre-view-bar');
+
+            if (type === 'doughnut') {
+                btnDoughnut.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold bg-amber-500 text-black shadow transition cursor-pointer';
+                btnBar.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer';
+            } else {
+                btnBar.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold bg-amber-500 text-black shadow transition cursor-pointer';
+                btnDoughnut.className = 'px-2.5 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer';
+            }
+            initGenreChart();
+        }
+
+        function updateGenreDetailBox(index) {
+            const currentGenres = genresByEra[currentGenreEra];
+            const genre = currentGenres[index] || currentGenres[0];
+
+            document.getElementById('genre-detail-title').textContent = genre.name;
+            document.getElementById('genre-detail-title').style.color = genre.color === '#991b1b' ? '#f87171' : genre.color;
+            document.getElementById('genre-detail-pct').textContent = `${genre.percentage}% del cartel`;
+            document.getElementById('genre-detail-desc').textContent = genre.desc;
+
+            const bandsContainer = document.getElementById('genre-detail-bands');
+            bandsContainer.innerHTML = genre.bands.map(band => `
+                <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-zlive-card text-gray-200 border border-zlive-border hover:border-amber-500/50 transition">
+                    ${band}
+                </span>
+            `).join('');
+        }
+
+        const barValueLabelsPlugin = {
+            id: 'barValueLabels',
+            afterDatasetsDraw(chart) {
+                if (chart.config.options.indexAxis !== 'y') return;
+                const { ctx } = chart;
+                ctx.save();
+                ctx.font = "bold 11.5px 'JetBrains Mono', monospace";
+                ctx.fillStyle = '#fbbf24';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+
+                chart.getDatasetMeta(0).data.forEach((bar, index) => {
+                    const value = chart.data.datasets[0].data[index];
+                    if (value !== undefined && value !== null) {
+                        ctx.fillText(`${value} ref.`, bar.x + 8, bar.y);
+                    }
+                });
+                ctx.restore();
+            }
+        };
+
+        function getFilteredBandRanking() {
+            if (currentBandRankFilter === '90s') {
+                return [...historicalBands]
+                    .filter(b => b.count90s > 0)
+                    .sort((a, b) => b.count90s - a.count90s)
+                    .map(b => ({ ...b, displayCount: b.count90s }));
+            }
+            if (currentBandRankFilter === 'modern') {
+                return [...historicalBands]
+                    .filter(b => b.countModern > 0)
+                    .sort((a, b) => b.countModern - a.countModern)
+                    .map(b => ({ ...b, displayCount: b.countModern }));
+            }
+            return [...historicalBands]
+                .sort((a, b) => b.count - a.count)
+                .map(b => ({ ...b, displayCount: b.count }));
+        }
+
+        function initBandsBarChart() {
+            const canvas = document.getElementById('bandsBarChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const rankingData = getFilteredBandRanking();
+            const maxVal = Math.max(...rankingData.map(b => b.displayCount)) + 2;
+
+            if (bandsBarChartInstance) bandsBarChartInstance.destroy();
+
+            bandsBarChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: rankingData.map((b, i) => `#${i + 1}  ${b.name}`),
+                    datasets: [{
+                        label: 'Apariciones de referencia',
+                        data: rankingData.map(b => b.displayCount),
+                        backgroundColor: rankingData.map(b => genreColorMap[b.genre] || '#dc2626'),
+                        borderColor: '#09090b',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        barPercentage: 0.78
+                    }]
+                },
+                plugins: [barValueLabelsPlugin],
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(16, 17, 22, 0.97)',
+                            titleColor: '#fbbf24',
+                            bodyColor: '#f3f4f6',
+                            borderColor: '#dc2626',
+                            borderWidth: 1,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    const band = rankingData[context.dataIndex];
+                                    return ` ${band.displayCount} apariciones ref. • Subgénero: ${band.genreFull}`;
+                                },
+                                afterLabel: function(context) {
+                                    const band = rankingData[context.dataIndex];
+                                    return [
+                                        `Debut ref.: ${band.debut} (${band.country})`,
+                                        `Ediciones clave: ${band.highlights}`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: maxVal,
+                            grid: { color: 'rgba(39, 42, 53, 0.45)' },
+                            ticks: { stepSize: 1, color: '#94a3b8' },
+                            title: {
+                                display: true,
+                                text: 'Ediciones de referencia en Z! Live Zamora (2016–2026)',
+                                color: '#94a3b8',
+                                font: { size: 11, weight: '600' }
+                            }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#f3f4f6', font: { weight: '600', size: 11.5 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function setBandRankingFilter(filter) {
+            currentBandRankFilter = filter;
+            ['all', '90s', 'modern'].forEach(f => {
+                const btn = document.getElementById(`btn-rank-${f}`);
+                btn.className = f === filter
+                    ? 'px-3 py-1.5 rounded-md text-xs font-semibold bg-amber-500 text-black shadow transition cursor-pointer'
+                    : 'px-3 py-1.5 rounded-md text-xs font-semibold text-gray-400 hover:text-white transition cursor-pointer';
+            });
+            initBandsBarChart();
+        }
+
+        function renderBandsTable(data) {
+            const tbody = document.getElementById('bands-table-body');
+            const noResults = document.getElementById('no-results-msg');
+            if (!tbody) return;
+
+            if (data.length === 0) {
+                tbody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            tbody.innerHTML = data.map((band, index) => {
+                const rankBadge = index < 3
+                    ? `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 font-mono font-bold border border-amber-500/40">${index + 1}</span>`
+                    : `<span class="text-gray-400 font-mono pl-2">${index + 1}</span>`;
+
+                const debutBadgeClass = band.debut <= 2017
+                    ? 'bg-amber-950/80 text-amber-300 border-amber-700/50'
+                    : 'bg-zlive-black text-gray-300 border-zlive-border';
+
+                const dotColor = genreColorMap[band.genre] || '#dc2626';
+
+                return `
+                    <tr class="hover:bg-white/[0.03] transition-colors">
+                        <td class="py-3.5 px-3 sm:px-4">${rankBadge}</td>
+                        <td class="py-3.5 px-3 sm:px-4">
+                            <div class="font-bold text-white text-sm">${band.name}</div>
+                            <div class="text-xs text-gray-400 max-w-md">${band.note}</div>
+                        </td>
+                        <td class="py-3.5 px-3 sm:px-4 text-gray-300 whitespace-nowrap">${band.country}</td>
+                        <td class="py-3.5 px-3 sm:px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-zlive-black text-gray-200 border border-zlive-border whitespace-nowrap">
+                                <span class="w-2 h-2 rounded-full" style="background-color:${dotColor}"></span>
+                                ${band.genreFull}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-3 sm:px-4 text-center">
+                            <span class="px-2 py-0.5 text-xs font-mono rounded border ${debutBadgeClass}">${band.debut}</span>
+                        </td>
+                        <td class="py-3.5 px-3 sm:px-4 text-center">
+                            <span class="font-display text-base sm:text-lg font-extrabold text-amber-400">${band.count}</span>
+                        </td>
+                        <td class="py-3.5 px-3 sm:px-4 text-xs font-mono text-gray-300">${band.highlights}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function filterBandsTable() {
+            const searchTerm = document.getElementById('band-search').value.toLowerCase().trim();
+            const selectedGenre = document.getElementById('genre-filter').value;
+            const selectedDecade = document.getElementById('decade-filter').value;
+
+            const filtered = historicalBands.filter(band => {
+                const matchesSearch =
+                    band.name.toLowerCase().includes(searchTerm) ||
+                    band.country.toLowerCase().includes(searchTerm) ||
+                    band.note.toLowerCase().includes(searchTerm) ||
+                    band.highlights.toLowerCase().includes(searchTerm) ||
+                    band.debut.toString().includes(searchTerm);
+
+                const matchesGenre = selectedGenre === 'ALL' || band.genre === selectedGenre;
+                const matchesDecade = selectedDecade === 'ALL' || band.decades.includes(selectedDecade);
+
+                return matchesSearch && matchesGenre && matchesDecade;
+            });
+
+            renderBandsTable(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('band-search').value = '';
+            document.getElementById('genre-filter').value = 'ALL';
+            document.getElementById('decade-filter').value = 'ALL';
+            renderBandsTable(historicalBands);
+        }
+
+        function exportToCSV() {
+            let csvContent = "Año,Etapa,Asistencia_Estimada_Total,Entradas_Abonos_Ref,Bandas_en_Cartel,Lluvia_Variable,Nivel_Clima,Estado_Meteorologico,Hito_Historico\n";
+            historicalData.forEach(row => {
+                const eraLabel = row.era === 'early' ? 'Etapa Inicial (2016-2019)' : 'Etapa Moderna (2022-2026)';
+                const rainedText = row.rained === null ? 'Cancelado' : (row.rained ? 'SI' : 'NO');
+                csvContent += `${row.year},"${eraLabel}",${row.attendanceTotal},${row.ticketsSold},${row.bands},"${rainedText}",${row.weatherLevel},"${row.weatherLabel}","${row.note.replace(/"/g, '""')}"\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Z_Live_Zamora_Historia_Completa_2016_2026.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showToast("CSV histórico de Z! Live Zamora (2016–2026) descargado.");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-banner');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
