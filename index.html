@@ -585,8 +585,12 @@
                         </h2>
                     </div>
                     <p class="text-xs sm:text-sm text-zlive-steel mt-1">
-                        Explora las 131 bandas que han actuado en Z! Live (2016–2026) con su subgénero, origen y ediciones: filtra por nombre, país, género o etapa.
+                        Explora las 131 bandas que han actuado en Z! Live (2016–2026) con su subgénero, origen y ediciones: filtra por nombre, país, género, etapa o edición concreta.
                     </p>
+                    <div class="mt-2 inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-zlive-black border border-zlive-border text-xs font-mono text-amber-400">
+                        <i class="fa-solid fa-filter text-[11px]"></i>
+                        <span id="bands-count-indicator">Mostrando 131 de 131 bandas</span>
+                    </div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row flex-wrap gap-2.5">
@@ -622,6 +626,24 @@
                         <option value="ALL">Todas las Etapas</option>
                         <option value="2010s">2016–2019</option>
                         <option value="2020s">2022–2026</option>
+                    </select>
+
+                    <select 
+                        id="year-filter" 
+                        onchange="filterBandsTable()" 
+                        class="px-3 py-2 bg-zlive-black border border-zlive-border rounded-lg text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-amber-500 transition cursor-pointer"
+                    >
+                        <option value="ALL">Todas las Ediciones (Año)</option>
+                        <option value="2026">Edición 2026</option>
+                        <option value="2025">Edición 2025</option>
+                        <option value="2024">Edición 2024</option>
+                        <option value="2023">Edición 2023</option>
+                        <option value="2022">Edición 2022</option>
+                        <option value="2021">Edición 2021 (Z! Live On)</option>
+                        <option value="2019">Edición 2019</option>
+                        <option value="2018">Edición 2018</option>
+                        <option value="2017">Edición 2017</option>
+                        <option value="2016">Edición 2016</option>
                     </select>
                 </div>
             </div>
@@ -3384,6 +3406,14 @@
         function renderBandsTable(data) {
             const tbody = document.getElementById('bands-table-body');
             const noResults = document.getElementById('no-results-msg');
+            const countIndicator = document.getElementById('bands-count-indicator');
+            const yearSelect = document.getElementById('year-filter');
+            const selectedYear = yearSelect ? yearSelect.value : 'ALL';
+            if (countIndicator) {
+                countIndicator.textContent = selectedYear !== 'ALL'
+                    ? `Mostrando ${data.length} bandas en la edición ${selectedYear}`
+                    : `Mostrando ${data.length} de ${historicalBands.length} bandas`;
+            }
             if (!tbody) return;
 
             if (data.length === 0) {
@@ -3425,7 +3455,11 @@
                         <td class="py-3.5 px-3 sm:px-4 text-center">
                             <span class="font-display text-base sm:text-lg font-extrabold text-amber-400">${band.count}</span>
                         </td>
-                        <td class="py-3.5 px-3 sm:px-4 text-xs font-mono text-gray-300">${band.highlights}</td>
+                        <td class="py-3.5 px-3 sm:px-4 text-xs font-mono text-gray-300">${
+                            selectedYear !== 'ALL'
+                                ? band.highlights.replace(new RegExp(`\\b(${selectedYear})\\b`, 'g'), '<span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold">$1</span>')
+                                : band.highlights
+                        }</td>
                     </tr>
                 `;
             }).join('');
@@ -3435,6 +3469,7 @@
             const searchTerm = document.getElementById('band-search').value.toLowerCase().trim();
             const selectedGenre = document.getElementById('genre-filter').value;
             const selectedDecade = document.getElementById('decade-filter').value;
+            const selectedYear = document.getElementById('year-filter').value;
 
             const filtered = historicalBands.filter(band => {
                 const matchesSearch =
@@ -3447,8 +3482,9 @@
 
                 const matchesGenre = selectedGenre === 'ALL' || band.genre === selectedGenre;
                 const matchesDecade = selectedDecade === 'ALL' || band.decades.includes(selectedDecade);
+                const matchesYear = selectedYear === 'ALL' || new RegExp(`\\b${selectedYear}\\b`).test(band.highlights);
 
-                return matchesSearch && matchesGenre && matchesDecade;
+                return matchesSearch && matchesGenre && matchesDecade && matchesYear;
             });
 
             renderBandsTable(filtered);
@@ -3458,6 +3494,7 @@
             document.getElementById('band-search').value = '';
             document.getElementById('genre-filter').value = 'ALL';
             document.getElementById('decade-filter').value = 'ALL';
+            document.getElementById('year-filter').value = 'ALL';
             renderBandsTable(historicalBands);
         }
 
