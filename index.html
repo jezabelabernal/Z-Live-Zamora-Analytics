@@ -174,7 +174,11 @@
                 </a>
                 <button onclick="exportToCSV()" class="hidden lg:flex items-center gap-2 ml-2 px-3.5 py-1.5 rounded-lg bg-zlive-card hover:bg-red-950/60 text-gray-200 hover:text-amber-400 border border-zlive-border hover:border-red-500/50 text-xs font-semibold transition cursor-pointer shrink-0">
                     <i class="fa-solid fa-file-csv text-red-500"></i>
-                    <span>Exportar CSV</span>
+                    <span>CSV Historia</span>
+                </button>
+                <button onclick="exportBandsCSV()" class="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zlive-card hover:bg-amber-950/60 text-gray-200 hover:text-amber-400 border border-zlive-border hover:border-amber-500/50 text-xs font-semibold transition cursor-pointer shrink-0">
+                    <i class="fa-solid fa-guitar text-amber-400"></i>
+                    <span>CSV Bandas</span>
                 </button>
             </nav>
         </div>
@@ -577,11 +581,11 @@
                     <div class="flex items-center gap-2.5">
                         <span class="w-2.5 h-6 bg-amber-500 rounded-sm"></span>
                         <h2 class="font-display text-lg sm:text-2xl font-bold uppercase tracking-wide text-white">
-                            5. Archivo Histórico de Bandas Recurrentes (2016–2026)
+                            5. Archivo Histórico Completo de Bandas (131 Bandas • 2016–2026)
                         </h2>
                     </div>
                     <p class="text-xs sm:text-sm text-zlive-steel mt-1">
-                        Explora las bandas destacadas del ciclo en Zamora: filtra por nombre, origen, subgénero o etapa.
+                        Explora las 131 bandas que han actuado en Z! Live (2016–2026) con su subgénero, origen y ediciones: filtra por nombre, país, género o etapa.
                     </p>
                 </div>
 
@@ -817,19 +821,2001 @@
         };
 
         const historicalBands = [
-            { name: 'Saratoga', country: 'España', genre: 'Heavy Metal', genreFull: 'Heavy Metal', debut: 2017, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'En el cartel de 2017 (Plaza de la Catedral), 2019 y 2023 (IFEZA) en Zamora.', highlights: '2017, 2019, 2023' },
-            { name: 'Eluveitie', country: 'Suiza', genre: 'Death Metal', genreFull: 'Folk / Melodic Death', debut: 2019, count: 3, count90s: 1, countModern: 2, decades: ['2010s', '2020s'], note: 'Uno de los nombres internacionales repetidores en Z! Live en Zamora (2019, 2023, 2024).', highlights: '2019, 2023, 2024' },
-            { name: 'Leo Jiménez', country: 'España', genre: 'Heavy Metal', genreFull: 'Heavy / Power Metal', debut: 2016, count: 2, count90s: 1, countModern: 1, decades: ['2010s', '2020s'], note: 'Presente en la edición inaugural de 2016 (Ruta de la Plata) y de nuevo en 2022.', highlights: '2016, 2022' },
-            { name: 'Avalanch', country: 'España', genre: 'Power Metal', genreFull: 'Power / Heavy Metal', debut: 2022, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'Actuación en la edición de junio de 2022 en Zamora (incluyendo sesión en La Marina).', highlights: '2022' },
-            { name: 'Blind Guardian', country: 'Alemania', genre: 'Power Metal', genreFull: 'Power Metal', debut: 2022, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'Cabeza de cartel en la edición de 2022 en Zamora junto a Lacuna Coil y Korpiklaani.', highlights: '2022' },
-            { name: 'Lacuna Coil', country: 'Italia', genre: 'Heavy Metal', genreFull: 'Gothic / Heavy Metal', debut: 2022, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'Presentes en la edición de 2022 en Zamora.', highlights: '2022' },
-            { name: 'Helloween', country: 'Alemania', genre: 'Power Metal', genreFull: 'Power Metal', debut: 2023, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'Cabeza de cartel en 2023 en IFEZA junto a Michael Schenker Group y Airbourne.', highlights: '2023' },
-            { name: 'Europe', country: 'Suecia', genre: 'Heavy Metal', genreFull: 'Hard Rock / Heavy', debut: 2024, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'Cabeza de cartel de 2024 en IFEZA junto a Avantasia, Kreator, Doro y HammerFall.', highlights: '2024' },
-            { name: 'Avantasia', country: 'Internacional', genre: 'Power Metal', genreFull: 'Symphonic Power Metal', debut: 2024, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'En el cartel de 2024 en IFEZA (junto a Paradise Lost, At The Gates y Leprous).', highlights: '2024' },
-            { name: 'Dream Theater', country: 'EE. UU.', genre: 'Power Metal', genreFull: 'Progressive Metal', debut: 2025, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'En el cartel de la 10ª edición (junio 2025) en IFEZA con Sepultura, Accept y Meshuggah.', highlights: '2025' },
-            { name: 'Opeth & Epica', country: 'Suecia / Países Bajos', genre: 'Death Metal', genreFull: 'Prog Death / Symphonic', debut: 2026, count: 1, count90s: 0, countModern: 1, decades: ['2020s'], note: 'En el cartel de junio de 2026 en IFEZA (con Opeth, Epica, Saxon, Emperor y Brothers of Metal).', highlights: '2026' },
-            { name: 'WarCry, Sôber & Hamlet', country: 'España', genre: 'Heavy Metal', genreFull: 'Heavy / Rock Estatal', debut: 2016, count: 1, count90s: 1, countModern: 0, decades: ['2010s'], note: 'Formaron parte de la edición inaugural de 2016 en el Ruta de la Plata de Zamora.', highlights: '2016' }
-        ];
+            {
+                        "name": "Celtibeerian",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk / Pagan Metal",
+                        "debut": 2016,
+                        "count": 6,
+                        "count90s": 4,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Récord de participaciones desde la edición fundacional de 2016.",
+                        "highlights": "2016, 2017, 2018, 2019, 2023, 2026"
+            },
+            {
+                        "name": "Ciconia",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Post-Metal / Instrumental",
+                        "debut": 2016,
+                        "count": 5,
+                        "count90s": 3,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Referente castellano presente desde la primera edición en Zamora.",
+                        "highlights": "2016, 2017, 2019, 2021, 2023"
+            },
+            {
+                        "name": "Leo Jiménez",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Groove Metal",
+                        "debut": 2017,
+                        "count": 5,
+                        "count90s": 2,
+                        "countModern": 3,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Imprescindible en el festival desde 2017 hasta la etapa IFEZA.",
+                        "highlights": "2017, 2019, 2021, 2022, 2024"
+            },
+            {
+                        "name": "Saurom",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk / Juglar Metal",
+                        "debut": 2017,
+                        "count": 5,
+                        "count90s": 2,
+                        "countModern": 3,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Una de las bandas más queridas y recurrentes en la historia del Z! Live.",
+                        "highlights": "2017, 2018, 2021, 2022, 2025"
+            },
+            {
+                        "name": "Death & Legacy",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2016,
+                        "count": 4,
+                        "count90s": 3,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Banda local zamorana presente desde el nacimiento del festival en 2016.",
+                        "highlights": "2016, 2018, 2019, 2023"
+            },
+            {
+                        "name": "Dünedain",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Power / Heavy Metal",
+                        "debut": 2016,
+                        "count": 4,
+                        "count90s": 3,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Presentes en el cartel fundacional de 2016 y múltiples regresos.",
+                        "highlights": "2016, 2017, 2018, 2023"
+            },
+            {
+                        "name": "Saratoga",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2016,
+                        "count": 4,
+                        "count90s": 3,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Presente desde la I Edición (2016) y referente del heavy español en Zamora.",
+                        "highlights": "2016, 2017, 2019, 2023"
+            },
+            {
+                        "name": "Ars Amandi",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk Rock / Heavy Metal",
+                        "debut": 2017,
+                        "count": 4,
+                        "count90s": 1,
+                        "countModern": 3,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Clásico del rock castellano con cuatro pasos por el Z! Live.",
+                        "highlights": "2017, 2021, 2022, 2024"
+            },
+            {
+                        "name": "Atomic Megalodon",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash / Groove Metal",
+                        "debut": 2019,
+                        "count": 4,
+                        "count90s": 1,
+                        "countModern": 3,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Representación local zamorana habitual en las jornadas del festival.",
+                        "highlights": "2019, 2022, 2023, 2024"
+            },
+            {
+                        "name": "Lèpoka",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk Metal",
+                        "debut": 2021,
+                        "count": 4,
+                        "count90s": 0,
+                        "countModern": 4,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Habitual en la etapa moderna del festival en Zamora.",
+                        "highlights": "2021, 2022, 2023, 2026"
+            },
+            {
+                        "name": "Lujuria",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2016,
+                        "count": 3,
+                        "count90s": 2,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Presentes en la edición inaugural de 2016, 2018 y el décimo aniversario.",
+                        "highlights": "2016, 2018, 2025"
+            },
+            {
+                        "name": "Zenobia",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2016,
+                        "count": 3,
+                        "count90s": 3,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Pilar de la primera etapa del festival en el Auditorio Ruta de la Plata.",
+                        "highlights": "2016, 2017, 2019"
+            },
+            {
+                        "name": "Opera Magna",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Power Metal",
+                        "debut": 2017,
+                        "count": 3,
+                        "count90s": 2,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Referente del power sinfónico estatal en tres ediciones.",
+                        "highlights": "2017, 2018, 2024"
+            },
+            {
+                        "name": "Trallery",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2017,
+                        "count": 3,
+                        "count90s": 2,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Trío mallorquín de thrash técnico con tres apariciones.",
+                        "highlights": "2017, 2019, 2023"
+            },
+            {
+                        "name": "Dry River",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Hard Rock / Progressive Rock",
+                        "debut": 2018,
+                        "count": 3,
+                        "count90s": 1,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Calidad melódica y progresiva en tres ediciones del festival.",
+                        "highlights": "2018, 2021, 2023"
+            },
+            {
+                        "name": "Sôber",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Rock / Metal Alternativo",
+                        "debut": 2018,
+                        "count": 3,
+                        "count90s": 1,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Referente del rock metal alternativo español en Zamora.",
+                        "highlights": "2018, 2021, 2025"
+            },
+            {
+                        "name": "Vhäldemar",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2018,
+                        "count": 3,
+                        "count90s": 1,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Heavy/Power de alto voltaje en 2018, 2024 y 2026.",
+                        "highlights": "2018, 2024, 2026"
+            },
+            {
+                        "name": "Bloodhunter",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2019,
+                        "count": 3,
+                        "count90s": 1,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Uno de los referentes del metal extremo nacional en Zamora.",
+                        "highlights": "2019, 2021, 2022"
+            },
+            {
+                        "name": "Gigatron",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Comedy Heavy Metal",
+                        "debut": 2019,
+                        "count": 3,
+                        "count90s": 1,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Espectáculo y humor heavy en 2019, 2023 y 2024.",
+                        "highlights": "2019, 2023, 2024"
+            },
+            {
+                        "name": "Noctem",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Blackened Death Metal",
+                        "debut": 2019,
+                        "count": 3,
+                        "count90s": 1,
+                        "countModern": 2,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Metal extremo de gran impacto visual y sonoro.",
+                        "highlights": "2019, 2023, 2025"
+            },
+            {
+                        "name": "Angelus Apatrida",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2021,
+                        "count": 3,
+                        "count90s": 0,
+                        "countModern": 3,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Punta de lanza del Thrash español en el crecimiento del festival.",
+                        "highlights": "2021, 2022, 2025"
+            },
+            {
+                        "name": "Vita Imana",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Groove / Tribal Metal",
+                        "debut": 2021,
+                        "count": 3,
+                        "count90s": 0,
+                        "countModern": 3,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Potencia groove en las ediciones de 2021, 2022 y 2025.",
+                        "highlights": "2021, 2022, 2025"
+            },
+            {
+                        "name": "Korpiklaani",
+                        "country": "Finlandia",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk Metal",
+                        "debut": 2022,
+                        "count": 3,
+                        "count90s": 0,
+                        "countModern": 3,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Fiesta folk finlandesa habitual en la etapa moderna de IFEZA.",
+                        "highlights": "2022, 2023, 2026"
+            },
+            {
+                        "name": "Barón Rojo",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal / Hard Rock",
+                        "debut": 2016,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Leyenda del heavy español en la I Edición (2016) y en 2023.",
+                        "highlights": "2016, 2023"
+            },
+            {
+                        "name": "Avalanch",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Power / Progressive Metal",
+                        "debut": 2017,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Actuación All Star Band en 2017 y regreso en 2022.",
+                        "highlights": "2017, 2022"
+            },
+            {
+                        "name": "Kritters",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death / Groove Metal",
+                        "debut": 2017,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Banda salmantina presente en 2017 y 2023.",
+                        "highlights": "2017, 2023"
+            },
+            {
+                        "name": "1945",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Speed Metal",
+                        "debut": 2018,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Participación en las ediciones de 2018 y 2022.",
+                        "highlights": "2018, 2022"
+            },
+            {
+                        "name": "Epica",
+                        "country": "Países Bajos",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Metal",
+                        "debut": 2018,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Cabeza de cartel en 2018 y regreso triunfal en 2026.",
+                        "highlights": "2018, 2026"
+            },
+            {
+                        "name": "Injector",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2018,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Thrash técnico desde Cartagena en 2018 y 2025.",
+                        "highlights": "2018, 2025"
+            },
+            {
+                        "name": "Crisix",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2019,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Directos explosivos en 2019 y 2023.",
+                        "highlights": "2019, 2023"
+            },
+            {
+                        "name": "Hiranya",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death / Metalcore",
+                        "debut": 2019,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Actuaciones en 2019 y 2022.",
+                        "highlights": "2019, 2022"
+            },
+            {
+                        "name": "Incursed",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Pagan / Folk Metal",
+                        "debut": 2019,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Folk metal vasco en 2019 y 2023.",
+                        "highlights": "2019, 2023"
+            },
+            {
+                        "name": "Kamelot",
+                        "country": "EE. UU.",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Power Metal",
+                        "debut": 2019,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Cabeza de cartel en 2019 y regreso en 2024 en IFEZA.",
+                        "highlights": "2019, 2024"
+            },
+            {
+                        "name": "Omnium Gatherum",
+                        "country": "Finlandia",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2019,
+                        "count": 2,
+                        "count90s": 1,
+                        "countModern": 1,
+                        "decades": [
+                                    "2010s",
+                                    "2020s"
+                        ],
+                        "note": "Doble paso por Zamora en 2019 y 2023.",
+                        "highlights": "2019, 2023"
+            },
+            {
+                        "name": "Daeria",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2021,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Participación en 2021 y 2022.",
+                        "highlights": "2021, 2022"
+            },
+            {
+                        "name": "Débler / Debler Eternia",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Symphonic Folk Metal",
+                        "debut": 2021,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Presentes en el Z! Live Lite 2021 y en la edición de 2022.",
+                        "highlights": "2021, 2022"
+            },
+            {
+                        "name": "El Altar del Holocausto",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Instrumental Doom / Post-Rock",
+                        "debut": 2021,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Homilía instrumental en 2021 y 2022.",
+                        "highlights": "2021, 2022"
+            },
+            {
+                        "name": "Morphium",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Groove / Alternative Metal",
+                        "debut": 2022,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Intensidad moderna en 2022 y 2025.",
+                        "highlights": "2022, 2025"
+            },
+            {
+                        "name": "Doro",
+                        "country": "Alemania",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2023,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "La Reina del Metal actuó en dos ediciones consecutivas en IFEZA.",
+                        "highlights": "2023, 2024"
+            },
+            {
+                        "name": "Eluveitie",
+                        "country": "Suiza",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk / Melodic Death Metal",
+                        "debut": 2023,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Referente internacional del folk metal melódico en IFEZA.",
+                        "highlights": "2023, 2024"
+            },
+            {
+                        "name": "Insomnium",
+                        "country": "Finlandia",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2023,
+                        "count": 2,
+                        "count90s": 0,
+                        "countModern": 2,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Melodic death metal finlandés en 2023 y 2024.",
+                        "highlights": "2023, 2024"
+            },
+            {
+                        "name": "Warcry",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Power / Heavy Metal",
+                        "debut": 2016,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Cabeza de cartel de la I Edición fundacional de Z! Live en 2016.",
+                        "highlights": "2016"
+            },
+            {
+                        "name": "Stratovarius",
+                        "country": "Finlandia",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2017,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Primer cabeza de cartel internacional de la historia del festival en 2017.",
+                        "highlights": "2017"
+            },
+            {
+                        "name": "Tierra Santa",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2017,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Himnos épicos del heavy español en la II Edición.",
+                        "highlights": "2017"
+            },
+            {
+                        "name": "Guadaña",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Heavy metal desde Cádiz en Z! Live 2018.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Killus",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Industrial / Groove Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Metal industrial y shock rock en 2018.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Leyenda",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Heavy/power melódico en 2018.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Somas Cure",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Alternative Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Metal alternativo madrileño en 2018.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Sonata Arctica",
+                        "country": "Finlandia",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Primer gran cabeza de cartel internacional en Z! Live 2018.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Sphinx",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Heavy metal gaditano en 2018.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Stravaganzza",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Symphonic / Gothic Metal",
+                        "debut": 2018,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Show especial en la III Edición en Zamora.",
+                        "highlights": "2018"
+            },
+            {
+                        "name": "Aposento",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Death Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Veteranos del death metal riojano en 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Childrain",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death / Groove Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Metal extremo melódico desde Vitoria en 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "El Reno Renardo",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Freak / Comedy Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Fiesta y humor metalero en 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Gamma Ray",
+                        "country": "Alemania",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Kai Hansen y los suyos encabezando la IV Edición en 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Soilwork",
+                        "country": "Suecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Melodic death metal sueco en Zamora 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Sylvania",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Power Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Power metal melódico valenciano en 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Symphony X",
+                        "country": "EE. UU.",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive Power Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Virtuosismo progresivo y neoclásico en 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Taken",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Power metal navarro en la IV Edición.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Therion",
+                        "country": "Suecia",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Metal",
+                        "debut": 2019,
+                        "count": 1,
+                        "count90s": 1,
+                        "countModern": 0,
+                        "decades": [
+                                    "2010s"
+                        ],
+                        "note": "Pioneros del metal sinfónico en Z! Live 2019.",
+                        "highlights": "2019"
+            },
+            {
+                        "name": "Beast in Black",
+                        "country": "Finlandia",
+                        "genre": "Power Metal",
+                        "genreFull": "Power / Heavy Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Energía power metal ochentera en 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Blind Guardian",
+                        "country": "Alemania",
+                        "genre": "Power Metal",
+                        "genreFull": "Power / Speed Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Los bardos alemanes encabezando el regreso post-pandemia en 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Destruction",
+                        "country": "Alemania",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Big Four del thrash alemán en Zamora 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Grave Noise",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash / Groove Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Thrash metal burgalés en 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Lacuna Coil",
+                        "country": "Italia",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Gothic / Alternative Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Referente italiano del metal gótico/alternativo en 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Legion of the Damned",
+                        "country": "Países Bajos",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Death / Thrash Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Death/thrash neerlandés en la VII Edición.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Moonspell",
+                        "country": "Portugal",
+                        "genre": "Death Metal",
+                        "genreFull": "Gothic / Dark Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Estandarte del metal portugués ante gran público luso en Zamora.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Revolution Within",
+                        "country": "Portugal",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash / Groove Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Thrash metal desde Portugal en 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Sin Control",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Rock",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Participación en Z! Live 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Tarja",
+                        "country": "Finlandia",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Metal",
+                        "debut": 2022,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Voz icónica del metal sinfónico en Z! Live 2022.",
+                        "highlights": "2022"
+            },
+            {
+                        "name": "Airbourne",
+                        "country": "Australia",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Hard Rock",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Descarga de hard rock australiano de alto voltaje en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Dark Tranquillity",
+                        "country": "Suecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Referente del melodic death de Gotemburgo en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Diabulus in Musica",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal sinfónico navarro en Z! Live 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Evergrey",
+                        "country": "Suecia",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive / Dark Power Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal progresivo oscuro desde Suecia en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Gloryhammer",
+                        "country": "Reino Unido",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Power Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Power metal épico y fantasía espacial en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Helloween",
+                        "country": "Alemania",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Cabeza de cartel histórico con formación Pumpkins United en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Jolly Joker",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Hard Rock / Sleaze Rock",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Actitud hard rock y sleaze en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Michael Schenker Group",
+                        "country": "Alemania",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Hard Rock / Heavy Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Leyenda de la guitarra hard rock/heavy en IFEZA 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Ross the Boss",
+                        "country": "EE. UU.",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Clásicos de Manowar y true heavy metal en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Septicflesh",
+                        "country": "Grecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Symphonic Death Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Death metal sinfónico monumental desde Grecia en 2023.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "The Broken Horizon",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Metalcore / Groove Metal",
+                        "debut": 2023,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metalcore moderno en la VIII Edición.",
+                        "highlights": "2023"
+            },
+            {
+                        "name": "Against Myself",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal sinfónico estatal en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "At the Gates",
+                        "country": "Suecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Pioneros del sonido Gotemburgo en Z! Live 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Avantasia",
+                        "country": "Internacional",
+                        "genre": "Power Metal",
+                        "genreFull": "Symphonic Power Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "La ópera metal de Tobias Sammet como gran reclamo de 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Breed 77",
+                        "country": "Gibraltar",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Flamenco / Groove Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Fusión metal alternativa en Z! Live 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Dawn of Extinction",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death / Metalcore",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal extremo moderno en Zamora 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Decapitated",
+                        "country": "Polonia",
+                        "genre": "Death Metal",
+                        "genreFull": "Technical Death Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Apisonadora polaca de death metal en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Europe",
+                        "country": "Suecia",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Hard Rock / Heavy Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Cabeza de cartel en 2024 liderando la expansión en IFEZA.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "HammerFall",
+                        "country": "Suecia",
+                        "genre": "Power Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Templarios del power metal sueco en Zamora 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Illusion",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Thrash metal barcelonés en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Jelena",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Rock / Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Participación en la IX Edición.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "KK's Priest",
+                        "country": "Reino Unido",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "K.K. Downing y Tim 'Ripper' Owens descargando clásico heavy en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Kreator",
+                        "country": "Alemania",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Icono del thrash teutón encabezando la IX Edición.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Leprous",
+                        "country": "Noruega",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal progresivo noruego de altísimo nivel en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Mind Traveller",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive / Melodic Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Participación en Z! Live 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Obús",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Históricos del heavy español en Zamora 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Orden Ogan",
+                        "country": "Alemania",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Power metal alemán en IFEZA 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Persefone",
+                        "country": "Andorra",
+                        "genre": "Death Metal",
+                        "genreFull": "Progressive Death Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Virtuosismo progresivo extremo en la IX Edición.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Rise to Fall",
+                        "country": "España",
+                        "genre": "Death Metal",
+                        "genreFull": "Melodic Death Metal",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Melodic death desde Bilbao en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "The Black Panthys Party",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Punk / Crossover Thrash",
+                        "debut": 2024,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Energía punk/crossover en 2024.",
+                        "highlights": "2024"
+            },
+            {
+                        "name": "Accept",
+                        "country": "Alemania",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Himnos del heavy alemán en IFEZA 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Alestorm",
+                        "country": "Reino Unido",
+                        "genre": "Folk Metal",
+                        "genreFull": "Pirate / Folk Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Pirate metal festivo en la X Edición.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Dark Funeral",
+                        "country": "Suecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Black Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Black metal sueco sin concesiones en 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Dream Theater",
+                        "country": "EE. UU.",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Gigantes del metal progresivo encabezando el 10º Aniversario (2025).",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Dynazty",
+                        "country": "Suecia",
+                        "genre": "Power Metal",
+                        "genreFull": "Melodic Power / Modern Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal melódico sueco en 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Exodus",
+                        "country": "EE. UU.",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Leyenda del Bay Area Thrash en Zamora 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Gotthard",
+                        "country": "Suiza",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Hard Rock",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Hard rock suizo de estadio en el 10º Aniversario.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Meshuggah",
+                        "country": "Suecia",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Extreme Progressive / Djent",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Demolición rítmica sueca en la X Edición.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Mind Driller",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Industrial Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal industrial teatral en la X Edición.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Nanowar of Steel",
+                        "country": "Italia",
+                        "genre": "Power Metal",
+                        "genreFull": "Comedy Power Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Humor y power metal italiano en IFEZA 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Nile",
+                        "country": "EE. UU.",
+                        "genre": "Death Metal",
+                        "genreFull": "Technical Death Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Brutalidad técnica de temática egipcia en 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Rotting Christ",
+                        "country": "Grecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Gothic / Black Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Institución del metal extremo heleno en 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Salduie",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Folk metal celtíbero desde Zaragoza en 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Sepultura",
+                        "country": "Brasil",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash / Groove Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Gira de despedida en el 10º Aniversario de Z! Live.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Voltax",
+                        "country": "México",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Speed Metal",
+                        "debut": 2025,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Heavy speed metal mexicano en Zamora 2025.",
+                        "highlights": "2025"
+            },
+            {
+                        "name": "Ankhara",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Heavy / Power Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Clásico del heavy/power madrileño en 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Astray Valley",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Modern Metal / Metalcore",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal moderno en Z! Live 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Brothers of Metal",
+                        "country": "Suecia",
+                        "genre": "Power Metal",
+                        "genreFull": "Power / Viking Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Despliegue épico sueco en Z! Live 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Delalma",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Melodic Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Presentes en la XI Edición en IFEZA.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Ekyrian",
+                        "country": "España",
+                        "genre": "Folk Metal",
+                        "genreFull": "Folk Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Folk metal madrileño en Z! Live 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Emperor",
+                        "country": "Noruega",
+                        "genre": "Death Metal",
+                        "genreFull": "Symphonic Black Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Leyenda noruega cabeza de cartel en Z! Live 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Headon",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy / Alternative Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal melódico murciano en 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Latzen",
+                        "country": "España",
+                        "genre": "Thrash Metal",
+                        "genreFull": "Thrash / Heavy Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Regreso histórico en el cartel de 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Noah Histeria",
+                        "country": "España",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive Rock / Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Metal progresivo nacional en Zamora 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Opeth",
+                        "country": "Suecia",
+                        "genre": "Death Metal",
+                        "genreFull": "Progressive / Death Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Cabeza de cartel en la edición de junio de 2026 en IFEZA.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Romanthica",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Gothic Rock / Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Rock/metal gótico en la XI Edición.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Saxon",
+                        "country": "Reino Unido",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Heavy Metal (NWOBHM)",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Icono británico del heavy metal en el cartel de 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Serious Black",
+                        "country": "Internacional",
+                        "genre": "Power Metal",
+                        "genreFull": "Power Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Power metal melódico internacional en 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Soen",
+                        "country": "Suecia",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive Metal",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Elegancia progresiva sueca en IFEZA 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Tesseract",
+                        "country": "Reino Unido",
+                        "genre": "Power Metal",
+                        "genreFull": "Progressive Metal / Djent",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Referente británico del metal progresivo moderno en 2026.",
+                        "highlights": "2026"
+            },
+            {
+                        "name": "Xtasy",
+                        "country": "España",
+                        "genre": "Heavy Metal",
+                        "genreFull": "Melodic Hard Rock / Heavy",
+                        "debut": 2026,
+                        "count": 1,
+                        "count90s": 0,
+                        "countModern": 1,
+                        "decades": [
+                                    "2020s"
+                        ],
+                        "note": "Hard rock melódico en 2026.",
+                        "highlights": "2026"
+            }
+];
 
         let attendanceChartInstance = null;
         let weatherChartInstance = null;
@@ -1314,7 +3300,7 @@
             const canvas = document.getElementById('bandsBarChart');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
-            const rankingData = getFilteredBandRanking();
+            const rankingData = getFilteredBandRanking().slice(0, 15);
             const maxVal = Math.max(...rankingData.map(b => b.displayCount)) + 2;
 
             if (bandsBarChartInstance) bandsBarChartInstance.destroy();
@@ -1456,7 +3442,8 @@
                     band.country.toLowerCase().includes(searchTerm) ||
                     band.note.toLowerCase().includes(searchTerm) ||
                     band.highlights.toLowerCase().includes(searchTerm) ||
-                    band.debut.toString().includes(searchTerm);
+                    band.debut.toString().includes(searchTerm) ||
+                    band.genreFull.toLowerCase().includes(searchTerm);
 
                 const matchesGenre = selectedGenre === 'ALL' || band.genre === selectedGenre;
                 const matchesDecade = selectedDecade === 'ALL' || band.decades.includes(selectedDecade);
@@ -1492,6 +3479,23 @@
             document.body.removeChild(link);
 
             showToast("CSV histórico de Z! Live Zamora (2016–2026) descargado.");
+        }
+
+
+        function exportBandsCSV() {
+            let csvContent = "\uFEFFBanda,Pais,Categoria_Genero,Subgenero_Completo,Debut,Total_Shows,Ediciones\n";
+            historicalBands.forEach(b => {
+                csvContent += `"${b.name.replace(/"/g, '""')}","${b.country}","${b.genre}","${b.genreFull}",${b.debut},${b.count},"${b.highlights}"\n`;
+            });
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Z_Live_Zamora_Todas_Las_Bandas_Generos_2016_2026.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("CSV con las 131 bandas y sus géneros descargado.");
         }
 
         function showToast(msg) {
